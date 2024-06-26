@@ -45,6 +45,7 @@ body {
     width: 350px;
     box-shadow: 7px 7px 15px -1px rgba(0, 0, 0, 0.55);
     margin: 30px;
+    background: none;
 }
 
 .card-header {
@@ -60,6 +61,14 @@ body {
     display: flex;
     gap: 7px;
     margin-left: 25px;
+    justify-items: center;
+    align-items: center;
+}
+
+.btn-map{
+    width: 50px;
+    background-color: none;
+    font-size: 10px;
 }
 
 .wmo {
@@ -84,22 +93,26 @@ body {
 }
 
 
-.card-body {
+.card-body-float {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     width: 100%;
-    height: 75%;
+    height: 200px;
     background-color: #fff;
 }
 
-.card-body .content {
-    padding: 20px;
+.card-body-float .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 8px;
+    padding-left: 14px;
     width: 100%;
     height: 100%;
 }
 
-.card-body .img-container {
+.card-body-float .img-container {
     width: 100px;
     height: 100%;
     padding-top: 20px;
@@ -110,12 +123,30 @@ body {
 
 
 
-#myImage {
+#cycle-line {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 50px;
-    background-color: #a0a0a0;
+    align-items: center;    
+    justify-content: space-around;
+    gap: 40px;
+    height: 40px;
+}
 
+.btn-cycle{
+    height: 33px;
+    width: 150px;
+    font-size: 13px;
+    font-weight: bold;
+    flex: 2;
+}
+
+.num-cycle{
+    flex:1;
+}
+
+.voir-plus-btn{
+    color: #e6e6e6 !important;
+    text-align: center;
+    font-size: 1.08333em;
+    margin-left: 10px;
 }
