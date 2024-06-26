@@ -3,7 +3,6 @@ body {
     background: linear-gradient(#64b6e6, #dee0fe);
     background-size: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-y: hidden;
 }
 
 .dashboard {
@@ -14,7 +13,7 @@ body {
 
 
 .main-map {
-    height: 100vh; 
+    height: 100vh;
     flex: 1;
 }
 
@@ -23,12 +22,8 @@ body {
     flex: 1;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-content: center;
-    align-items: flex-start;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    align-items: center;
     height: 100vh;
-    gap: 75px;
     margin: 0px;
     overflow-y: auto;
 }
@@ -49,6 +44,7 @@ body {
 .card {
     width: 350px;
     box-shadow: 7px 7px 15px -1px rgba(0, 0, 0, 0.55);
+    margin: 30px;
 }
 
 .card-header {
