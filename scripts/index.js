@@ -1,6 +1,15 @@
 
 let main = document.getElementById('main');
 
+let map = L.map('main-map').setView([0, 0], 2);
+
+L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: '&copy; esri'
+}).addTo(map);
+
+setTimeout(() =>  map.invalidateSize(), 1500);
+
 let floatListStatic = [
     {
         wmo: "7900573",
@@ -35,7 +44,7 @@ let floatListStatic = [
 ];
 
 
-fetch('https://fleetmonitoring.euro-argo.eu/floats/multi-lines-search/pages?page=1&size=50', {
+fetch('https://fleetmonitoring.euro-argo.eu/floats/multi-lines-search/pages?page=1&size=6', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -53,6 +62,7 @@ fetch('https://fleetmonitoring.euro-argo.eu/floats/multi-lines-search/pages?page
     return response.json()
 }).then(function (floatListDynamic) {
     floatListDynamic.forEach(function (float) {
+        console.log(float)
         let card = templateHtml.replace(/{{wmo}}/g, float.wmo);
         card = card.replace(/{{statusCode}}/g, float.statusCode);
         card = card.replace(/{{lastCycleBasicInfo.date}}/g, float.lastCycleBasicInfo.date);
@@ -61,6 +71,10 @@ fetch('https://fleetmonitoring.euro-argo.eu/floats/multi-lines-search/pages?page
         card = card.replace(/{{battery.status}}/g, float.battery.status);
         card = card.replace(/{{lastCycleBasicInfo.numCycle}}/g, float.lastCycleBasicInfo.numCycle);
         main.innerHTML = main.innerHTML + card;
+
+        //Dessiner le point flotteur sur la carte 
+
+       // L.marker([float.lastCycleBasicInfo, -16.09]).addTo(map)
     });
 });
 
@@ -109,6 +123,8 @@ function afficherNumCycle(wmo, numeroCycle) {
         numCycle.innerHTML = "";
     }
 }
+
+
 
 
 
